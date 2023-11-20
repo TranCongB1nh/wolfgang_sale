@@ -1,0 +1,62 @@
+// import { useAppSelector } from "./redux/store";
+'use client'
+
+import Flashsale from "@/components/Sections/Flashsale";
+import ProductCard from "@/components/Product/ProductCard";
+import ServicesSection from "@/components/Sections/ServicesSection";
+import Slides from "@/components/Sections/Slides";
+import TopCategoriesSection from "@/components/Sections/TopCategoriesSection";
+import BestSellerSection from "@/components/Sections/BestSellerSection";
+import { useAppDispatch, useAppSelector } from "@/redux/store";
+import { useEffect } from "react";
+import TopProductsSection from "@/components/Sections/TopProductsSection";
+import PreOrderSection from "@/components/Sections/PreOrderSection";
+import VouchersSection from "@/components/Sections/VouchersSection";
+import SubscribeFormSection from "@/components/Sections/SubscribeFormSection";
+import NewsSection from "@/components/Sections/NewsSection";
+import { addToLately, reset } from '@/redux/features/product-slide';
+import ProductsLately from "@/components/Product/ProductsLately";
+
+export default function Home() {
+
+  const lately: any = useAppSelector((state) => state.productReducer.list);
+
+  const dispatch = useAppDispatch();
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+  };
+
+  useEffect(() => {
+    scrollToTop();
+    // dispatch(reset())
+  }, []);
+
+  return (
+    <div className="mysection  min-h-[2500px]">
+      <Slides />
+      <ServicesSection />
+      <BestSellerSection />
+      <Flashsale date={"2023-08-02"} />
+
+      {/* 0: left, 1: right */}
+      <TopProductsSection category={"Quần jean"} direction={true} />
+      <TopProductsSection category={"Áo khoác"} direction={true} />
+      <TopProductsSection category={"Áo thun"} direction={true} />
+      <TopProductsSection category={"Quần short"} direction={true} />
+
+      <VouchersSection />
+      <SubscribeFormSection />
+      <NewsSection />
+      {lately?.length > 0 &&
+        <ProductsLately />
+      }
+      {/* <PreOrderSection /> */}
+
+      {/* <TopCategoriesSection /> */}
+    </div>
+  )
+}
