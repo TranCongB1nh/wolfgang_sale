@@ -93,7 +93,7 @@ export const ComponentToPrint = React.forwardRef((props, ref) => {
       <div className="w-full flex items-center justify-between">
         <Image
           src={require('../public/logo-1.png')}
-          alt="logo Mooment"
+          alt="logo WolfGang"
           width={200}
           height={100}
         />
