@@ -117,7 +117,7 @@ export default function Footer() {
             <div className='mygrid flex justify-between items-start mt-8 h-[200px]'>
                 <div className='flex justify-start items-center'>
                     <h5 className='text-white font-semibold text-[16px] uppercase mr-3'>Kết nối với chúng tôi</h5>
-                    <Link href="https://www.facebook.com/profile.php?id=100095037903481" target='_blank'>
+                    <Link href="https://www.facebook.com/profile.php?id=100043750991700" target='_blank'>
                         <Image
                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Facebook_logo_36x36.svg/1024px-Facebook_logo_36x36.svg.png"
                             alt="facebook"
@@ -126,7 +126,7 @@ export default function Footer() {
                             className='rounded-[10px] mr-3'
                         />
                     </Link>
-                    <Link href="https://www.youtube.com/channel/UCgqsyGlxtIDgw_7VbV_rmuA" target='_blank'>
+                    <Link href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target='_blank'>
                         <Image
                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/YouTube_play_button_square_%282013-2017%29.svg/2048px-YouTube_play_button_square_%282013-2017%29.svg.png"
                             alt="youtube"
