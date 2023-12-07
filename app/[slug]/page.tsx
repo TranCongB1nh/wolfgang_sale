@@ -17,7 +17,7 @@ export async function generateMetadata({ params: { slug } }: Props) {
     openGraph: {
       title: data.name,
       type: 'website',
-      url: 'https://mooment.vercel.app/' + data.slug,
+      url: 'https://wolfgang.vercel.app/' + data.slug,
       description: data.name + ' chính hãng - giá rẻ tại WolfGang',
       images: data.imageUrl
     }
