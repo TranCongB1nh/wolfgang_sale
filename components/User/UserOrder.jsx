@@ -61,7 +61,7 @@ export default function UserOrder() {
     const handlePrint = async ({ order }) => {
         var mywindow = window.open('blank', 'PRINT');
 
-        mywindow.document.write('<html><head><title>' + 'Đơn hàng - Mooment.com' + '</title>');
+        mywindow.document.write('<html><head><title>' + 'Đơn hàng - WolfGang.com' + '</title>');
         mywindow.document.write('<style>');
         mywindow.document.write('* { margin: 0; padding: 0; box-sizing: border-box; }')
         mywindow.document.write('body { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center }')
