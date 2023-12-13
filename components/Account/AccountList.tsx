@@ -7,7 +7,7 @@ import FolderSharedOutlinedIcon from '@mui/icons-material/FolderSharedOutlined';
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import InterestsOutlinedIcon from '@mui/icons-material/InterestsOutlined';
-import MeetingRoomOutlinedIcon from '@mui/icons-material/MeetingRoomOutlined'; 
+import MeetingRoomOutlinedIcon from '@mui/icons-material/MeetingRoomOutlined';
 import StyleOutlinedIcon from '@mui/icons-material/StyleOutlined';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { useAppDispatch, useAppSelector } from '@/redux/store';
@@ -20,58 +20,59 @@ import UserAddress from '../User/UserAddress';
 import UserOrder from '../User/UserOrder';
 import UserLately from '../User/UserLately';
 import UserFavourite from '../User/UserFavourite';
+import UserVouchers from "../User/UserVouchers";
 
-export default function AccountList() { 
+export default function AccountList() {
     const params = useSearchParams();
     const [tab, setTab] = useState('');
     const user: any = useAppSelector((state) => state.authReducer.value.user);
- 
+
     const [isOpen, setIsOpen] = useState(false);
     const [isOpenSignIn, setIsOpenSignIn] = useState(false);
     const [isOpenSignUp, setIsOpenSignUp] = useState(false);
 
     const switchToSignIn = async () => {
         await setIsOpen(true)
-        await setIsOpenSignIn(true) 
+        await setIsOpenSignIn(true)
         await setIsOpenSignUp(false);
-    } 
+    }
 
     const switchToSignUp = async () => {
         await setIsOpen(true)
-        await setIsOpenSignIn(false) 
+        await setIsOpenSignIn(false)
         await setIsOpenSignUp(true);
-    } 
+    }
 
     const dispatch = useAppDispatch();
 
     const handleLogOut = () => {
-        dispatch(logOut());    
-    } 
- 
+        dispatch(logOut());
+    }
+
     useEffect(() => {
         if (user.email === undefined) {
             switchToSignIn();
         }
-        const getTab = async () => { 
-            if (typeof(params.get('don-hang')) === 'string') {
+        const getTab = async () => {
+            if (typeof (params.get('don-hang')) === 'string') {
                 await setTab('don-hang')
             }
-            else if (typeof(params.get('so-dia-chi')) === 'string') {
+            else if (typeof (params.get('so-dia-chi')) === 'string') {
                 await setTab('so-dia-chi')
             }
-            else if (typeof(params.get('ma-giam-gia')) === 'string') {
+            else if (typeof (params.get('ma-giam-gia')) === 'string') {
                 await setTab('ma-giam-gia')
             }
-            else if (typeof(params.get('yeu-thich')) === 'string') {
+            else if (typeof (params.get('yeu-thich')) === 'string') {
                 await setTab('yeu-thich')
             }
-            else if (typeof(params.get('da-xem')) === 'string') {
+            else if (typeof (params.get('da-xem')) === 'string') {
                 await setTab('da-xem')
             }
             else {
                 await setTab('')
             }
-        } 
+        }
         getTab();
     }, [params]);
 
@@ -79,9 +80,9 @@ export default function AccountList() {
         <div className='mygrid flex justify-between'>
             <div className='w-[21%] h-[600px] p-5 rounded-[10px] bg-light-gray shadow-menu'>
                 <div className='w-full text-center'>
-                    <AccountCircleRoundedIcon className='!text-[100px] text-[#504e4e]'/>
+                    <AccountCircleRoundedIcon className='!text-[100px] text-[#504e4e]' />
                     <span className='block w-full mt-2 text-center text-white text-[15px] font-semibold'>
-                        <WavingHandOutlinedIcon className='myicon'/>
+                        <WavingHandOutlinedIcon className='myicon' />
                         Xin chào, {user.fullName}
                     </span>
                 </div>
@@ -90,76 +91,77 @@ export default function AccountList() {
 
                 <div className='flex w-full h-[40px] items-center justify-start boldOnHover my-2'>
                     <Link href="/tai-khoan" className={`flex w-full h-full  items-center text-[14px] justify-start ${tab === '' ? "text-light-yellow" : "text-white"}`}>
-                        <FolderSharedOutlinedIcon className='myicon'/>
+                        <FolderSharedOutlinedIcon className='myicon' />
                         Thông tin tài khoản
                     </Link>
                 </div>
-                
+
                 <div className='flex w-full h-[40px] items-center justify-start boldOnHover my-2'>
                     <Link href="/tai-khoan?so-dia-chi" className={`flex w-full h-full items-center text-[14px] justify-start ${tab === 'so-dia-chi' ? "text-light-yellow" : "text-white"}`}>
-                        <FmdGoodOutlinedIcon className='myicon'/>
+                        <FmdGoodOutlinedIcon className='myicon' />
                         Sổ địa chỉ
                     </Link>
                 </div>
 
                 <div className='flex w-full h-[40px] items-center justify-start boldOnHover my-2'>
                     <Link href='/tai-khoan?don-hang' className={`flex w-full h-full  items-center text-[14px] justify-start ${tab === 'don-hang' ? "text-light-yellow" : "text-white"}`}>
-                        <LocalShippingOutlinedIcon className='myicon'/>
+                        <LocalShippingOutlinedIcon className='myicon' />
                         Đơn hàng của tôi
                     </Link>
                 </div>
 
                 <div className='flex w-full h-[40px] items-center justify-start boldOnHover my-2'>
                     <Link href="/tai-khoan?ma-giam-gia" className={`flex w-full h-full  items-center text-[14px] justify-start ${tab === 'ma-giam-gia' ? "text-light-yellow" : "text-white"}`}>
-                        <StyleOutlinedIcon className='myicon'/>
+                        <StyleOutlinedIcon className='myicon' />
                         Kho voucher
                     </Link>
                 </div>
 
                 <div className='flex w-full h-[40px] items-center justify-start boldOnHover my-2'>
                     <Link href="/tai-khoan?yeu-thich" className={`flex w-full h-full  items-center text-[14px] justify-start ${tab === 'yeu-thich' ? "text-light-yellow" : "text-white"}`}>
-                        <InterestsOutlinedIcon className='myicon'/>
+                        <InterestsOutlinedIcon className='myicon' />
                         Danh sách yêu thích
                     </Link>
                 </div>
-                
+
                 <div className='flex w-full h-[40px] items-center justify-start boldOnHover my-2'>
                     <Link href="/tai-khoan?da-xem" className={`flex w-full h-full  items-center text-[14px] justify-start ${tab === 'da-xem' ? "text-light-yellow" : "text-white"}`}>
-                        <RemoveRedEyeOutlinedIcon className='myicon'/>
+                        <RemoveRedEyeOutlinedIcon className='myicon' />
                         Đã xem gần đây
                     </Link>
                 </div>
 
-                
+
                 <div className='w-[100%] my-3 h-[1px] bg-[#5f5959] mx-auto'></div>
-                
+
                 <div className='flex w-full h-[40px] items-center justify-start mydiv'>
                     <button className='mybutton flex w-full h-full items-center justify-start text-white' onClick={handleLogOut}>
-                        <MeetingRoomOutlinedIcon className='myicon'/>
+                        <MeetingRoomOutlinedIcon className='myicon' />
                         Đăng xuất
                     </button>
                 </div>
             </div>
-            <div className='w-[78%] min-h-[600px] py-5 px-3  mb-[40px] rounded-[10px] bg-white shadow-menu'> 
+            <div className='w-[78%] min-h-[600px] py-5 px-3  mb-[40px] rounded-[10px] bg-white shadow-menu'>
                 {user.email !== undefined && <>
-                     {tab === '' && <UserInfo />}
-                     {tab === 'so-dia-chi' && <UserAddress />}
-                     {tab === 'don-hang' && <UserOrder />}
-                     {tab === 'da-xem' && <UserLately />}
-                     {tab === 'yeu-thich' && <UserFavourite />}
+                    {tab === '' && <UserInfo />}
+                    {tab === 'so-dia-chi' && <UserAddress />}
+                    {tab === 'don-hang' && <UserOrder />}
+                    {tab === 'da-xem' && <UserLately />}
+                    {tab === 'ma-giam-gia' && <UserVouchers />}
+                    {tab === 'yeu-thich' && <UserFavourite />}
                 </>}
             </div>
 
-            
-            <SignFormModal 
-                isOpen={isOpen} 
-                closeModal={() => setIsOpen(false)} 
 
-                isOpenSignIn={isOpenSignIn} 
-                switchToSignIn={switchToSignIn} 
+            <SignFormModal
+                isOpen={isOpen}
+                closeModal={() => setIsOpen(false)}
 
-                isOpenSignUp={isOpenSignUp} 
-                switchToSignUp={switchToSignUp} 
+                isOpenSignIn={isOpenSignIn}
+                switchToSignIn={switchToSignIn}
+
+                isOpenSignUp={isOpenSignUp}
+                switchToSignUp={switchToSignUp}
             />
         </div>
     )
