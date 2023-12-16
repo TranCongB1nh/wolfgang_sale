@@ -95,11 +95,7 @@ export default function SignUpForm({ switchToSignIn }: SignUpFormProps) {
                             <button type='submit' className='mt-5 uppercase w-full py-4 font-bold rounded-lg bg-dark-yellow hover:bg-light-yellow transition'>Đăng ký</button>
 
                         </form>
-                        <div className='w-full h-auto flex justify-center items-center mt-4'>
-                            <div className='flex-1 h-[1px] bg-[#d1d1d1]'></div>
-                            <p className='font-normal text-[#a09898] text-[14px] mx-2 '>Hoặc đăng nhập bằng</p>
-                            <div className='flex-1 h-[1px] bg-[#d1d1d1]'></div>
-                        </div>
+
                         <div className='flex justify-center items-center w-full mt-3'>
 
                         </div>
