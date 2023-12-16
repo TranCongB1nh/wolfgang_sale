@@ -88,6 +88,9 @@ export default function SignInForm({ switchToSignUp, closeModal }: SignInFormPro
 
                     </form>
 
+                    <div className='flex justify-center items-center w-full mt-3'>
+
+                    </div>
 
                 </div>
             )}
