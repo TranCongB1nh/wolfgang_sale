@@ -54,7 +54,7 @@ export const Success = ({ isOpen, closeModal }: AlertProps) => {
                                         <Link href="/" className=' mx-2 flex items-end justify-center py-4 px-5 rounded-[10px] text-[16px] text-black font-bold uppercase hover:text-light-yellow'><HomeRoundedIcon className='myicon' />Trở lại trang chủ</Link>
                                         <Link onClick={closeModal} href="/tai-khoan?don-hang" className='w-[200px] mx-2 flex items-center justify-center  py-4 px-5 rounded-[10px] text-[16px] font-medium text-base uppercase border-2 border-black bg-white hover:bg-light-gray hover:border-light-gray hover:text-white duration-300'>Xem đơn hàng</Link>
                                     </div>
-                                    <Link href="https://wolfgang.vercel.app/" className='absolute bottom-0 right-2 tracking-widest text-[16px]'>MOOMENT.COM</Link>
+                                    <Link href="https://wolfgang.vercel.app/" className='absolute bottom-0 right-2 tracking-widest text-[16px]'>WOLFGANG.COM</Link>
                                 </div>
                             </Dialog.Panel>
                         </Transition.Child>
