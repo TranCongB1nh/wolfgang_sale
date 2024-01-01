@@ -1,6 +1,8 @@
 // import fetch from 'isomorphic-unfetch';
 import { NextResponse } from 'next/server'
 
+export const maxDuration = 300;
+
 export async function POST(request: Request) {
     const { email } = await request.json();
 
